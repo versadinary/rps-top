@@ -12,7 +12,17 @@
         function getRandomNumber(n) {
             return Math.floor(n * Math.random());
         }
-        alert(getComputerChoice()); 
+        function getHumanChoice() {
+            let str = prompt("Your Choice?\n🪨 📄 or ✂️").toLowerCase();
+            if (str == "rock" || str == "paper" || str == "scissors") {
+                return str;
+            }
+            else {
+                alert("Wrong input! Try again.");
+                getHumanChoice();
+            }
+        }
+        getHumanChoice();
     </script>
 </head>
 <body>
