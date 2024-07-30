@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function getComputerChoice() { }
-        alert(getRandomNumber(3));
+        function getComputerChoice() {
+            let rand = getRandomNumber(3);
+            return rand == 0 ? "rock" : rand == 1 ? "paper" : "scissors";
+        }
         function getRandomNumber(n) {
             return Math.floor(n * Math.random());
-        } 
+        }
+        alert(getComputerChoice()); 
     </script>
 </head>
 <body>
