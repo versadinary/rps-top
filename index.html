@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        let roundCount = 1;
         function getComputerChoice() {
             let rand = getRandomNumber(3);
             return rand == 0 ? "rock" : rand == 1 ? "paper" : "scissors";
         }
+
         function getRandomNumber(n) {
             return Math.floor(n * Math.random());
         }
+
         function getHumanChoice() {
-            let str = prompt("Your Choice?\n🪨 📄 or ✂️").toLowerCase();
+            let str = prompt(`Round ${roundCount}\n` + "Your Choice?\n🪨 📄 or ✂️").toLowerCase();
             if (str == "rock" || str == "paper" || str == "scissors") {
                 return str;
             }
@@ -22,29 +25,32 @@
                 getHumanChoice();
             }
         }
-        
-        let humanScore = 0;
-        let computerScore = 0;
 
-        function playRound(humanChoice, computerChoice) {
-            // state == 0 -> lose; state == 1 -> draw; state == 2 -> win
-            let state = 0;
-            // rock := 0; paper := 1; scissors := 2
-            let comp = (humanChoice == "rock" ? 0 : humanChoice == "paper" ? 1 : 2);
-            let hum = (computerChoice == "rock" ? 0 : computerChoice == "paper" ? 1 : 2);
-            state = (comp == hum) + 2 * ((hum == 0 && comp == 2) || (hum == 1 && comp == 0) || (hum == 2 && comp == 1));
-            if (state == 0) {
-                alert(`You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`);
+        function playGame() {
+            let humanScore = 0;
+            let computerScore = 0;
+            function playRound(humanChoice, computerChoice) {
+                // state == 0 -> lose; state == 1 -> draw; state == 2 -> win
+                let state = 0;
+                // rock := 0; paper := 1; scissors := 2
+                let comp = (humanChoice == "rock" ? 0 : humanChoice == "paper" ? 1 : 2);
+                let hum = (computerChoice == "rock" ? 0 : computerChoice == "paper" ? 1 : 2);
+                state = (comp == hum) + 2 * ((hum == 0 && comp == 2) || (hum == 1 && comp == 0) || (hum == 2 && comp == 1));
+                if (state == 0) {
+                    alert(`You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`);
+                }
+                else alert(state == 1 ? "Draw!" : "You win!");
+                humanScore += (state == 2);
+                computerScore += (state == 0);
+                roundCount += 1;
             }
-            else alert(state == 1 ? "Draw!" : "You win!");
-            humanScore += (state == 2);
-            computerScore += (state == 0);
+
+            playRound(getHumanChoice(), getComputerChoice());
+            playRound(getHumanChoice(), getComputerChoice());
+            playRound(getHumanChoice(), getComputerChoice());
+            playRound(getHumanChoice(), getComputerChoice());
+            playRound(getHumanChoice(), getComputerChoice());
         }
-
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-
-        playRound(humanSelection, computerSelection);
     </script>
 </head>
 <body>
