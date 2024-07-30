@@ -7,12 +7,8 @@
     <script>
         let roundCount = 1;
         function getComputerChoice() {
-            let rand = getRandomNumber(3);
+            let rand = Math.floor(3 * Math.random());;
             return rand == 0 ? "rock" : rand == 1 ? "paper" : "scissors";
-        }
-
-        function getRandomNumber(n) {
-            return Math.floor(n * Math.random());
         }
 
         function getHumanChoice() {
@@ -43,7 +39,7 @@
                 else alert(state == 1 ? "Draw!" : "You win!");
                 humanScore += (state == 2);
                 computerScore += (state == 0);
-                alert(`Your score: ${humanScore}\nComputer Score: ${computerScore}`);
+                alert(`Your score: ${humanScore}\nComputer score: ${computerScore}`);
                 roundCount += 1;
             }
 
