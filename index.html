@@ -22,7 +22,7 @@
             }
             else {
                 alert("Wrong input! Try again.");
-                getHumanChoice();
+                return getHumanChoice();
             }
         }
 
@@ -33,24 +33,39 @@
                 // state == 0 -> lose; state == 1 -> draw; state == 2 -> win
                 let state = 0;
                 // rock := 0; paper := 1; scissors := 2
-                let comp = (humanChoice == "rock" ? 0 : humanChoice == "paper" ? 1 : 2);
-                let hum = (computerChoice == "rock" ? 0 : computerChoice == "paper" ? 1 : 2);
+                let hum = (humanChoice == "rock" ? 0 : humanChoice == "paper" ? 1 : 2);
+                let comp = (computerChoice == "rock" ? 0 : computerChoice == "paper" ? 1 : 2);
                 state = (comp == hum) + 2 * ((hum == 0 && comp == 2) || (hum == 1 && comp == 0) || (hum == 2 && comp == 1));
+                alert(`You: ${hum == 0 ? "🪨" : hum == 1 ? "📄" : "✂️"}\nComputer: ${comp == 0 ? "🪨" : comp == 1 ? "📄" : "✂️"}`);
                 if (state == 0) {
                     alert(`You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`);
                 }
                 else alert(state == 1 ? "Draw!" : "You win!");
                 humanScore += (state == 2);
                 computerScore += (state == 0);
+                alert(`Your score: ${humanScore}\nComputer Score: ${computerScore}`);
                 roundCount += 1;
             }
 
-            playRound(getHumanChoice(), getComputerChoice());
-            playRound(getHumanChoice(), getComputerChoice());
-            playRound(getHumanChoice(), getComputerChoice());
-            playRound(getHumanChoice(), getComputerChoice());
-            playRound(getHumanChoice(), getComputerChoice());
+            let humanSelection = getHumanChoice();
+            let computerSelection = getComputerChoice();
+
+            playRound(humanSelection, computerSelection);
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
         }
+
+        playGame();
     </script>
 </head>
 <body>
