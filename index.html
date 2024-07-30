@@ -36,7 +36,7 @@
                 if (state == 0) {
                     alert(`You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`);
                 }
-                else alert(state == 1 ? "Draw!" : "You win!");
+                else alert(state == 1 ? "Tie!" : "You win!");
                 humanScore += (state == 2);
                 computerScore += (state == 0);
                 alert(`Your score: ${humanScore}\nComputer score: ${computerScore}`);
@@ -63,6 +63,11 @@
 
         playGame();
     </script>
+    <style>
+        body {
+            background-color: bisque;
+        }
+    </style>
 </head>
 <body>
     
