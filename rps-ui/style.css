@@ -28,7 +28,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 45px;
-    display: none;
+    /* display: none; */
 }
 
 .clickables {
@@ -84,7 +84,7 @@ a {
     align-items: center;
     gap: 65px;
 
-    /* display: none; */
+    display: none;
 }
 
 .button-container {
