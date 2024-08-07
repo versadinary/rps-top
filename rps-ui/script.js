@@ -39,6 +39,7 @@ function playRound(computerChoice, humanChoice) {
     document.querySelector(".human-score").textContent = humanScore;
     document.querySelector(".comp-score").textContent = computerScore;
     document.querySelector(".rounds").textContent = 'Round ' + roundCount;
+    
     if (humanScore == 5) {
         for (const btn of document.querySelectorAll(".game-button")) {
             btn.textContent = '🎉';
@@ -60,5 +61,5 @@ const buttonCont = document.querySelector(".button-container");
 buttonCont.addEventListener('click', (e) => {
     const target = e.target;
     
-    playRound(getComputerChoice(), target.id);
+    if (humanScore < 5 && computerScore < 5) playRound(getComputerChoice(), target.id);
 });
