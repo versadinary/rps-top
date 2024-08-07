@@ -12,6 +12,7 @@ function getComputerChoice() {
     let rand = Math.floor(3 * Math.random());;
     return rand == 0 ? "rock" : rand == 1 ? "paper" : "scissors";
 }
+
 let humanScore = 0;
 let computerScore = 0;
 
@@ -23,8 +24,21 @@ function playRound(computerChoice, humanChoice) {
 
     const humDisp = document.querySelector(".your-choice");
     const compDisp = document.querySelector(".comp-choice");
+
     humDisp.textContent = (hum == 0 ? '🪨' : hum == 1 ? '📄' : '✂️');
     compDisp.textContent = (comp == 0 ? '🪨' : comp == 1 ? '📄' : '✂️');
+
+    const status = document.querySelector(".status");
+
+    status.textContent = (state == 0 ? "You lose!" : state == 1 ? "Tie!" : "You Win!");
+
+    humanScore += (state == 2);
+    computerScore += (state == 0);
+    roundCount += 1;
+
+    document.querySelector(".human-score").textContent = humanScore;
+    document.querySelector(".comp-score").textContent = computerScore;
+    document.querySelector(".rounds").textContent = roundCount + ' / 5';
 
 }
 
