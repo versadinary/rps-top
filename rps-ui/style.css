@@ -15,6 +15,7 @@ body {
     align-items: center;
 }
 
+/* Styles for start menu */
 .start-container {
     background-color: #262626;
     width: 500px;
@@ -26,8 +27,16 @@ body {
     justify-content: space-between;
     justify-content: center;
     align-items: center;
-    gap: 65px;
+    gap: 45px;
+    /* display: none; */
+}
 
+.clickables {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .start-header {
@@ -52,5 +61,48 @@ body {
 
 .start:hover {
     background-color: #1d3d42;
+    box-shadow: none;
+}
+
+a {
+    font-family: "Roboto", sans-serif;
+    display: block;
+    text-decoration: none;
+    color: #c6c4b4;
+}
+
+/* Styles for game */
+.game-container {
+    background-color: #262626;
+    width: 600px;
+    height: 80vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    gap: 65px;
+
+    display: none;
+}
+
+.button-container {
+    display: flex;
+    gap: 30px;
+}
+
+.game-button {
+    font-size: 65px;
+    background-color: #c6c4b4;
+    border: 0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.game-button:hover {
+    background-color: #85847a;
     box-shadow: none;
 }
