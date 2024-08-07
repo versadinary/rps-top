@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let roundCount = 1;
+        function getComputerChoice() {
+            let rand = Math.floor(3 * Math.random());;
+            return rand == 0 ? "rock" : rand == 1 ? "paper" : "scissors";
+        }
+
+        function getHumanChoice() {
+            let str = prompt(`Round ${roundCount}\n` + "Your Choice?\n🪨 📄 or ✂️").toLowerCase();
+            if (str == "rock" || str == "paper" || str == "scissors") {
+                return str;
+            }
+            else {
+                alert("Wrong input! Try again.");
+                return getHumanChoice();
+            }
+        }
+
+        function playGame() {
+            let humanScore = 0;
+            let computerScore = 0;
+            function playRound(humanChoice, computerChoice) {
+                // state == 0 -> lose; state == 1 -> draw; state == 2 -> win
+                let state = 0;
+                // rock := 0; paper := 1; scissors := 2
+                let hum = (humanChoice == "rock" ? 0 : humanChoice == "paper" ? 1 : 2);
+                let comp = (computerChoice == "rock" ? 0 : computerChoice == "paper" ? 1 : 2);
+                state = (comp == hum) + 2 * ((hum == 0 && comp == 2) || (hum == 1 && comp == 0) || (hum == 2 && comp == 1));
+                alert(`You: ${hum == 0 ? "🪨" : hum == 1 ? "📄" : "✂️"}\nComputer: ${comp == 0 ? "🪨" : comp == 1 ? "📄" : "✂️"}`);
+                if (state == 0) {
+                    alert(`You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`);
+                }
+                else alert(state == 1 ? "Tie!" : "You win!");
+                humanScore += (state == 2);
+                computerScore += (state == 0);
+                alert(`Your score: ${humanScore}\nComputer score: ${computerScore}`);
+                roundCount += 1;
+            }
+
+            let humanSelection = getHumanChoice();
+            let computerSelection = getComputerChoice();
+
+            playRound(humanSelection, computerSelection);
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+        }
+
+        playGame();
+    </script>
+    <style>
+        body {
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
