@@ -38,7 +38,7 @@ function playRound(computerChoice, humanChoice) {
 
     document.querySelector(".human-score").textContent = humanScore;
     document.querySelector(".comp-score").textContent = computerScore;
-    document.querySelector(".rounds").textContent = roundCount + ' / 5';
+    document.querySelector(".rounds").textContent = 'Round ' + roundCount;
 
 }
 
