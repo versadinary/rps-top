@@ -24,6 +24,10 @@ body {
     flex-direction: column;
     border-radius: 30px;
     justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    gap: 65px;
+
 }
 
 .start-header {
@@ -31,7 +35,6 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 28px;
-    text-align: center;
     word-spacing: 5px;
 }
 
@@ -40,11 +43,11 @@ body {
     font-family: "Roboto", sans-serif;
     font-size: 20px;
     font-weight: 500;
-    margin: 70px;
     background-color: #2c5c63;
     border: 0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 15px;
+    width: 200px;
 }
 
 .start:hover {
