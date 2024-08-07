@@ -39,6 +39,20 @@ function playRound(computerChoice, humanChoice) {
     document.querySelector(".human-score").textContent = humanScore;
     document.querySelector(".comp-score").textContent = computerScore;
     document.querySelector(".rounds").textContent = 'Round ' + roundCount;
+    if (humanScore == 5) {
+        for (const btn of document.querySelectorAll(".game-button")) {
+            btn.textContent = '🎉';
+            btn.disabled = true;
+        }
+        compDisp.textContent = '☠️';
+    }
+    else if (computerScore == 5) {
+        for (const btn of document.querySelectorAll(".game-button")) {
+            btn.textContent = '💀';
+            btn.disabled = true;
+        }
+        humDisp.textContent = '☠️';
+    }
 
 }
 
