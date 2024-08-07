@@ -28,7 +28,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 45px;
-    /* display: none; */
+    display: none;
 }
 
 .clickables {
@@ -75,22 +75,21 @@ a {
 .game-container {
     background-color: #262626;
     width: 600px;
-    height: 80vh;
-    padding: 40px;
+    height: 600px;
+    padding: 60px;
     display: flex;
     flex-direction: column;
     border-radius: 30px;
-    justify-content: space-around;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 65px;
 
-    display: none;
+    /* display: none; */
 }
 
 .button-container {
     display: flex;
-    gap: 30px;
+    gap: 50px;
 }
 
 .game-button {
@@ -105,4 +104,56 @@ a {
 .game-button:hover {
     background-color: #85847a;
     box-shadow: none;
+}
+
+.scoreboard {
+    display: flex;
+    gap: 40px;
+}
+
+.human-score,
+.comp-score,
+.rounds {
+    width: 80px;
+    height: 80px;
+    background-color: #c6c4b4;
+    border-radius: 10px;
+    padding: 10px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 65px;
+    font-family: "Roboto", sans-serif;
+    color: #6493a4;
+}
+
+.rounds {
+    width: 200px;
+}
+
+.main-field {
+    display: flex;
+    gap: 20px;
+}
+
+.your-choice,
+.comp-choice,
+.status {
+    width: 100px;
+    height: 100px;
+    background-color: #c6c4b4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    border-radius: 10px;
+}
+
+.status {
+    width: 200px;
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    color: #683c1c;
 }
